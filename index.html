@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ShopEasy — Product Landing Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Simple product landing page built with HTML, CSS and JavaScript.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="site-header">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#0B84FF"/><path d="M7 12h10" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        ShopEasy
+      </div>
+
+      <nav>
+        <a href="#">Home</a>
+        <a href="#products">Products</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="cart-btn" id="open-cart" aria-label="Open cart">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 3h2l.4 2M7 13h10l3-8H6.4" stroke="#111" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="cart-count" id="cart-count">0</span>
+        </button>
+      </div>
+    </header>
+
+    
+
+    <section class="controls">
+      <div class="search">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M21 21l-4.35-4.35" stroke="#333" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 19a8 8 0 1 1 0-16 8 8 0 0 1 0 16z" stroke="#333" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <input id="searchInput" placeholder="Search products, e.g. speaker" />
+      </div>
+
+      <div class="filters" id="categoryFilters">
+        <button data-category="all" class="active">All</button>
+        <button data-category="audio">Audio</button>
+        <button data-category="accessory">Accessory</button>
+        <button data-category="home">Home</button>
+      </div>
+
+      <select id="sortSelect" title="Sort products">
+        <option value="featured">Featured</option>
+        <option value="price-asc">Price: Low → High</option>
+        <option value="price-desc">Price: High → Low</option>
+      </select>
+    </section>
+
+    <section id="products" class="product-grid" aria-live="polite">
+      <!-- Products rendered by JavaScript -->
+    </section>
+
+    <section id="contact" class="contact">
+      <h3>Contact / Order query</h3>
+      <form id="contactForm" novalidate>
+        <input type="text" placeholder="Your name" required name="name" id="cf-name" />
+        <input type="email" placeholder="Email" required name="email" id="cf-email" />
+        <textarea placeholder="Message" name="message" rows="4" required id="cf-message"></textarea>
+        <div class="form-row">
+          <button type="submit" class="btn-primary">Send</button>
+        </div>
+        <small class="form-feedback" id="formFeedback"></small>
+      </form>
+    </section>
+
+    <footer>
+      <div>© ShopEasy —Built By Md Shakil Khan</div>
+      <div class="muted">Project for Web Programming Course</div>
+    </footer>
+  </div>
+
+  <!-- Cart Drawer -->
+  <aside id="cartDrawer" class="cart-drawer" aria-hidden="true">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button id="closeCart" aria-label="Close cart">✕</button>
+    </div>
+
+    <div class="cart-items" id="cartItems">
+      <!-- cart items -->
+    </div>
+
+    <div class="cart-footer">
+      <div class="row">
+        <div>Subtotal</div>
+        <div id="subtotal">৳0</div>
+      </div>
+
+      <div class="promo-row">
+        <input id="promoInput" placeholder="Promo code" />
+        <button id="applyPromo" class="btn-primary">Apply</button>
+      </div>
+
+      <div class="row total-row">
+        <strong>Total</strong>
+        <strong id="total">৳0</strong>
+      </div>
+
+      <div class="row actions">
+        <button id="checkoutBtn" class="btn-success">Checkout</button>
+        <button id="clearCartBtn" class="btn-muted">Clear</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Modal -->
+  <div id="productModal" class="modal" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-img">
+        <img id="modalImage" src="" alt="product image" />
+      </div>
+      <div class="modal-info">
+        <h3 id="modalTitle"></h3>
+        <p id="modalDesc" class="muted"></p>
+        <div class="modal-actions">
+          <div id="modalPrice" class="price"></div>
+          <button id="modalAdd" class="btn-primary">Add to cart</button>
+          <button id="modalClose" class="btn-muted">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
