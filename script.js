@@ -3,7 +3,7 @@
    ----------------------- */
 const products = [
   
-  {id:1,name:'Wireless Earbuds',price:2490,category:'audio',image:"EB.JPG",desc:'Compact true-wireless earbuds with great sound.'},
+  {id:1,name:'Wireless Earbuds',price:2490,category:'audio',image:"EB.jpg",desc:'Compact true-wireless earbuds with great sound.'},
   {id:2,name:'Bluetooth Speaker',price:3990,category:'audio',image:"BS.jpg",desc:'Portable speaker with long battery life.'},
   {id:3,name:'Smart Lamp',price:1799,category:'home',image:"SL.jpg",desc:'Adjustable smart lamp with warm/cool light modes.'},
   {id:4,name:'Phone Case',price:450,category:'accessory',image:"PC.jpg",desc:'Slim protective case for popular phones.'},
@@ -269,3 +269,4 @@ $clearCartBtn.addEventListener('click', clearCart);
 /* initialize */
 renderProducts();
 renderCart();
+
